@@ -5,7 +5,7 @@ defmodule Anagram do
   @spec match(String.t, [String.t]) :: [String.t]
   def match(base, candidates) do
     candidates
-    |> Enum.filter(&(anagram?(&1, base)))
+    |> Enum.filter(&anagram?(&1, base))
   end
 
   defp anagram?(a, b) do
