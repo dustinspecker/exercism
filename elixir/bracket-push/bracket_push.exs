@@ -15,7 +15,7 @@ defmodule BracketPush do
     str
     |> String.graphemes
     |> Enum.reduce({:ok, []}, &(parse(&1, &2)))
-    |> is_valid_result
+    |> valid_result?
   end
 
   defp parse(_, {:error, stack}) do
@@ -37,7 +37,7 @@ defmodule BracketPush do
     end
   end
 
-  defp is_valid_result({status, stack}) do
+  defp valid_result?({status, stack}) do
     status === :ok && stack === [] 
   end
 
