@@ -13,7 +13,7 @@ defmodule BracketPush do
   @spec check_brackets(String.t) :: boolean
   def check_brackets(str) do
     str
-    |> String.split(~r/./, include_captures: true, trim: true)
+    |> String.graphemes
     |> Enum.reduce({:ok, []}, &(parse(&1, &2)))
     |> is_valid_result
   end
