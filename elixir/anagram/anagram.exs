@@ -5,10 +5,10 @@ defmodule Anagram do
   @spec match(String.t, [String.t]) :: [String.t]
   def match(base, candidates) do
     candidates
-    |> Enum.filter(&(is_anagram(&1, base)))
+    |> Enum.filter(&(anagram?(&1, base)))
   end
 
-  defp is_anagram(a, b) do
+  defp anagram?(a, b) do
     lower_a = String.downcase(a)
     lower_b = String.downcase(b)
 
